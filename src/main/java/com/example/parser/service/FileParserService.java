@@ -21,7 +21,6 @@ public class FileParserService {
         Chapter result = new Chapter(0, name, new LinkedList<>(), new LinkedList<>());
         result.setSubchapters(parseChapter(reader, 1,
                 firstChapter.substring(countSymbol(firstChapter), firstChapter.length() - 1), countSymbol(firstChapter)));
-        System.out.println(result);
         return result;
     }
 
