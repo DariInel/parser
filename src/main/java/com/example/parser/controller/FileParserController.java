@@ -12,11 +12,21 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.StringWriter;
 
+/**
+ * Класс-контроллер для обработки запросов
+ */
 @RestController
 public class FileParserController {
 
     @Autowired
+    /** Поле объект класса-сервиса */
     private FileParserService parserService;
+
+    /**
+     * Функция для обработки запроса на парсинг файла
+     * @param file - входящий файл
+     * @return JSON с результатом
+     */
     @PostMapping(value = "/parseFile", produces = MediaType.APPLICATION_JSON_VALUE)
     public String parseFile(@RequestParam("file") MultipartFile file) throws Exception {
         Chapter result = parserService.parseFile(file);
